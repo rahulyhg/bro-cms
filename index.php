@@ -13,5 +13,7 @@ class Index {
 $index = new Index();
 $index->show();
 
+echo 'test';
+
 
 
