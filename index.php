@@ -14,6 +14,4 @@ $index = new Index();
 $index->show();
 
 echo 'test';
-
-
-
+echo 'test';
