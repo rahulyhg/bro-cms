@@ -4,8 +4,8 @@ require(dirname(__FILE__).'/DataBaseController.php');
 
 class IndexController {
 
-    $welcomeText = "Hello there!";
-    $connection; 
+    public $welcomeText = "Hello there!";
+    public $connection; 
 
     public function __construct(){
     	$dbController = new DataBaseController();
@@ -18,6 +18,6 @@ class IndexController {
 
  	public function getView($viewName, $params = []){
  		extract($params);
- 		require_once(dirname(__FILE__).'/../views.'.$viewName.'.php');
+ 		require_once(dirname(__FILE__).'/../views/'.$viewName.'.php');
  	}
 }
