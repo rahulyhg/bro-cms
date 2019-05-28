@@ -5,11 +5,16 @@ require(dirname(__FILE__).'/DataBaseController.php');
 class IndexController {
 
     public $welcomeText = "Hello there!";
-    public $connection; 
+    public $result; 
 
     public function __construct(){
     	$dbController = new DataBaseController();
-        $this->connection = $dbController->connect();
+	$this->result = $dbController->getSites();
+	foreach($this->result as $result) {
+	echo "<div><label>$result[name]</label>&nbsp; <span>$result[url]</span></div>";
+	}
+
+
     }
 
     public function index() {
