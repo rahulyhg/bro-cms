@@ -6,7 +6,7 @@
     <body>
         <h1>Bro page</h1>
         <p>Welcome to the bro page.</p>'
-        <label>$this->welcomeText</label>";
+        <label><?= $welcomeText ?></label>";
 		<form>
 			<input type="text" name="textInputField"/>
 		</form>'; 
