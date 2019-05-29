@@ -1,6 +1,6 @@
 <?php
 
-require(dirname(__FILE__).'/DataBaseController.php');
+require(CONTROLLERS.'/DataBaseController.php');
 
 class IndexController {
 
@@ -9,12 +9,14 @@ class IndexController {
 
     public function __construct(){
     	$dbController = new DataBaseController();
-	$this->result = $dbController->getSites();
-	foreach($this->result as $result) {
-	echo "<div><label>$result[name]</label>&nbsp; <span>$result[url]</span></div>";
-	}
+		$this->result = $dbController->getSites();
+		if(is_null($this->result) || !$this->result){
+			return;
+		}
 
-
+		foreach($this->result as $result) {
+			//echo "<div><label>$result[name]</label>&nbsp; <span>$result[url]</span></div>";
+		}
     }
 
     public function index() {
@@ -23,6 +25,6 @@ class IndexController {
 
  	public function getView($viewName, $params = []){
  		extract($params);
- 		require_once(dirname(__FILE__).'/../views/'.$viewName.'.php');
+ 		require_once(VIEWS.'/'.$viewName.'.php');
  	}
 }
